@@ -1,0 +1,17 @@
+{
+  "name": "moglicodes-github-events",
+  "version": "0.0.1",
+  "description": "A scheduled serverless functions to fetch data from GitHub API and write it to a private database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@netlify/functions": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.0"
+  }
+}
