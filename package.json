@@ -4,7 +4,8 @@
   "description": "A scheduled serverless functions to fetch data from GitHub API and write it to a private database",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
   },
   "author": "",
   "license": "ISC",
