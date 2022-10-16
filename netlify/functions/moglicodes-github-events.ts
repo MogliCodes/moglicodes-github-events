@@ -1,17 +1,28 @@
 const { schedule } = require('@netlify/functions');
-import { $fetch } from 'ohmyfetch'
+import fetch from 'node-fetch'
 
-console.log('SERVERLESS OUTSIDE')
+const API_ENDPOINT = "https://api.github.com/users/MogliCodes/events"
 
 const handler = async function(event, context) {
-    // const { users } = await $fetch('https://api.github.com/users/MogliCodes/events')
-    console.log('users')
+    return fetch(API_ENDPOINT)
+        .then(response => response.json())
+        .then( data => {
+            console.log('DATAAA', data[0].id)
+            try {
+                return {
+                    statusCode: 200,
+                }
+            } catch (error) {
+                console.log(error)
+                return {
+                    statusCode: 400,
+                }
+            }
+        })
+        .catch(error => ({ statusCode: 422, body: String(error) }));
 
-    // console.log("Received event:", event);
-    console.log('SERVERLESS INSIDE')
-    return {
-        statusCode: 200,
-    };
+
+
 };
 
-exports.handler = schedule("* * * * *", handler);
+exports.handler = schedule("* * * * * *", handler);
